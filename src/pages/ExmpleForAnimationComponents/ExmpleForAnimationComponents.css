@@ -1,0 +1,40 @@
+.ExmpleForAnimationComponents{
+    position: relative;
+    /* display: flex; */
+}
+/* .App:first-child  {
+    flex-grow: 1;
+    height: 200px; 
+    width: 550px;
+    overflow: hidden;
+}
+.App:last-child  {
+    /* position: absolute;
+    top: 50%; */
+    /* flex-grow: 1; */
+    /* height: 100px; 
+    width: 150px;
+    overflow: hidden;
+} */ 
+.item1{
+    position: absolute;
+    right: 0px;
+    height: 300px;
+    width: 500px;
+    background: aliceblue;
+    overflow: hidden;
+    
+
+}
+
+.item2{
+    position: absolute;
+    white-space: nowrap;
+
+    left: 0px;
+    height: 100px;
+    width: 100px;
+    background: rgb(141, 207, 120);
+    overflow: hidden;
+
+}

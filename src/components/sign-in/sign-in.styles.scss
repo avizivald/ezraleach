@@ -1,0 +1,15 @@
+.sign-in {
+    width: 30vw;
+    display: flex;
+    flex-direction: column;
+    margin: 5px;
+  }
+
+  .buttons {
+    display: flex;
+    justify-content: space-between;
+    
+    &:last-child{
+      margin-left: 3px;
+    }
+  }

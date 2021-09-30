@@ -1,0 +1,49 @@
+@keyframes floatTextUp {
+  0% {
+      transform: translateY(30%);
+  }
+  100% {
+    transform: translateY(-100%);
+  }
+  
+  }
+@keyframes floatTextSide {
+  0% {
+    transform: translateX(-100%);
+}
+
+100% {
+    transform: translateX(10%);
+}
+
+  }
+.frame {
+     height: 100%;
+    width: 100%; 
+    text-align: center;
+    margin: 0 auto;
+}
+
+.content {
+    height: 100%;
+    width: 100%;
+    direction: rtl;
+    padding: 10px;
+}
+
+
+    
+    .to-move-up {
+      animation: floatTextUp 45s infinite linear ;
+      height: fit-content;
+    }
+    .to-move-side {
+      animation: floatTextSide 45s infinite linear ;
+      width: fit-content;
+
+      & * {
+        display: inline-block;
+      }
+    }
+
+    
