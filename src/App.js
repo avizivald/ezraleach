@@ -5,6 +5,7 @@ import { Route, Switch, BrowserRouter as Router } from 'react-router-dom';
 import { auth, createUserProfileDocument } from './firebase/firebase.config';
 import { connect } from 'react-redux';
 import { setCurrentUser } from './redux/user/user.actions';
+import Comingsoon from './pages/comingsoon/comingsoon';
 import Header from './components/header/Header';
 import drogAndDrop from './components/drog-and-drop/drog-and-drop';
 import SignInAndSignUpPage from './pages/sign-in-and-sign-up/sign-in-and-sign-up';
@@ -44,9 +45,9 @@ class App extends react.Component {
         <Header />
         <Switch>
           <Route exact path="/" component={SignInAndSignUpPage} />
-          <Route exact path="/drogAndDrop" component={drogAndDrop} />
-          {/* <Route exact path="/FiveCellGrid"  component ={FiveCellGrid} /> */}
-          <Route exact path="/Exmple" component={ExmpleForAnimationComponents} />
+          <Route exact path="/drogAndDrop" component={Comingsoon} />
+          <Route exact path="/FiveCellGrid"  component ={Comingsoon} />
+          <Route exact path="/Exmple" component={Comingsoon} />
           <Route exact path="/selectPlace" component={GivesDayTimesByCoordinates} />
         </Switch>
       </div>
