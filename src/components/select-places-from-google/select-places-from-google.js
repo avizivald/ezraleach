@@ -4,9 +4,13 @@ import PlacesAutocomplete, {
   geocodeByAddress,
   getLatLng
 } from "react-places-autocomplete";
-import FormInput from '../form-input/form-input'
+import { connect } from 'react-redux';
+import './SelectPlacesFromGoogle.css';
+import { Redirect } from 'react-router';
 
-export default function SelectPlacesFromGoogle(props){
+import FormInput from '../form-input/form-input'
+const SelectPlacesFromGoogle = (props)=>{
+  console.log(props.currentUser);
     const [address, setAddress] = React.useState("");
     const [coordinates, setCoordinates] = React.useState({
       latitude: null,
@@ -29,7 +33,8 @@ export default function SelectPlacesFromGoogle(props){
     
 
     return (
-        <div>
+      props.currentUser ? 
+        <div className='main-PlacesAutocomplete'>
           <PlacesAutocomplete
             value={address}
             onChange={setAddress}
@@ -37,8 +42,10 @@ export default function SelectPlacesFromGoogle(props){
           >
             {({ getInputProps, suggestions, getSuggestionItemProps, loading }) => (
               <div>
-                <p>Latitude: {coordinates.lat}</p>
-                <p>Longitude: {coordinates.lng}</p>
+                <div className="lat-lon">
+                <p>קו רוחב   Latitude: {coordinates.lat}</p>
+                <p>קו אורך   Longitude: {coordinates.lng}</p>
+              </div>
     
                 <FormInput {...getInputProps({ label:"Address"})} />
     
@@ -46,10 +53,10 @@ export default function SelectPlacesFromGoogle(props){
                   {loading ? <div>...loading</div> : null}
     
                   {suggestions.map(suggestion => {
-                    // console.log("suggestion ",suggestion);
                     const style = {
                       backgroundColor: suggestion.active ? "#41b6e6" : "#fff",
-                      fontSize : "15px"
+                      fontSize : "15px",
+                      margin: "0 20%"
                     };
     
                     return (
@@ -62,6 +69,17 @@ export default function SelectPlacesFromGoogle(props){
               </div>
             )}
           </PlacesAutocomplete>
+         
+
         </div>
+        :
+        <Redirect to="/" /> 
+        // <SignInAndSignUpPage/>
       );
 } 
+
+const mapStateToProps = state =>({
+  currentUser: state.user.currentUser
+})
+
+export default connect(mapStateToProps)(SelectPlacesFromGoogle);
