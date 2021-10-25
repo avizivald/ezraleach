@@ -11,19 +11,14 @@ export default class AppDragDrop extends Component {
     }
 
     onDragStart = (ev, id) => {
-        // console.log('dragstart: id',id);
-        // console.log('dragstart: ev',ev.clientY);
         ev.dataTransfer.setData("id", id);
     }
 
     onDragOver = (ev) => {
-        // console.log('onDragOver  ',ev.clientY);
         ev.preventDefault();
     }
 
     onDrop = (ev, cat) => {
-        console.log(ev.dataTransfer.getData("id"),ev.clientY);
-        // console.log('onDrop: cat',cat);
        let id = ev.dataTransfer.getData("id");
        
        let tasks = this.state.tasks.filter((task) => {

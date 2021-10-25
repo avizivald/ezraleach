@@ -13,13 +13,10 @@ export class TextDisplayAnimation extends React.Component {
 }
   componentDidMount() {
         let div = document.getElementById(this.state.id);
-        console.log(div);
     if (this.props.direction && this.props.direction === "vertical" && div.scrollHeight > div.clientHeight) {
-      console.log("scrollHeight > div.clientHeight",div.scrollHeight , div.clientHeight);
       div.className = "to-move-up content";
     }
     if (this.props.direction && this.props.direction === "horizontal"/* &&div.scrollWidth > div.clientWidth*/) {
-      console.log("div.scrollWidth > div.clientWidth",div.scrollWidth , div.clientWidth);
       div.className = "to-move-side content";
     }
   }

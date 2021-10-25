@@ -10,7 +10,6 @@ import { Redirect } from 'react-router';
 
 import FormInput from '../form-input/form-input'
 const SelectPlacesFromGoogle = (props)=>{
-  console.log(props.currentUser);
     const [address, setAddress] = React.useState("");
     const [coordinates, setCoordinates] = React.useState({
       latitude: null,
@@ -20,10 +19,6 @@ const SelectPlacesFromGoogle = (props)=>{
     const handleSelect = async value => {
         const results = await geocodeByAddress(value);
         const latLng = await getLatLng(results[0]);
-        // console.log('latLng latLng',latLng);
-        // console.log('results results',results);
-        // console.log(results[0].address_components[0].long_name);
-        // setAddress(results[0].address_components[0].long_name);
         setAddress(value);
         setCoordinates(latLng);
         if (props.onSelect) {
