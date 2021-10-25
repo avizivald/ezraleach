@@ -73,7 +73,7 @@ export default function GivesDayTimesByCoordinates(props) {
         <h1 className="times-header">אין לסמוך על הזמנים בדקדוק ויש להוסיף 4 דקות לחומרא</h1>
         <SelectPlacesFromGoogle onSelect={onSelect} />
         <div className="times-box">
-            {zmaneyHayom.map(zman => <ZmanimCard name={zman[0]} time={zman[1]} />)}
+            {zmaneyHayom.map(zman => <ZmanimCard  key={zman} name={zman[0]} time={zman[1]} />)}
         </div>
     </section>
 
