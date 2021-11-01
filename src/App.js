@@ -7,6 +7,7 @@ import { connect } from 'react-redux';
 import { setCurrentUser } from './redux/user/user.actions';
 import Comingsoon from './pages/comingsoon/comingsoon';
 import Header from './components/header/Header';
+// import Footer from './pages/footer/footer';
 import drogAndDrop from './components/drog-and-drop/drog-and-drop';
 import SignInAndSignUpPage from './pages/sign-in-and-sign-up/sign-in-and-sign-up';
 import ExmpleForAnimationComponents from './pages/ExmpleForAnimationComponents/ExmpleForAnimationComponents';
@@ -50,6 +51,7 @@ class App extends react.Component {
           <Route exact path="/Exmple" component={Comingsoon} />
           <Route exact path="/selectPlace" component={GivesDayTimesByCoordinates} />
         </Switch>
+        {/* <Footer/> */}
       </div>
     );
   }
