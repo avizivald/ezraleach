@@ -8,6 +8,7 @@ import { setCurrentUser } from './redux/user/user.actions';
 import Comingsoon from './pages/comingsoon/comingsoon';
 import Header from './components/header/Header';
 // import Footer from './pages/footer/footer';
+import AnimateEarth from './pages/Animate/AnimateEarth';
 import drogAndDrop from './components/drog-and-drop/drog-and-drop';
 import SignInAndSignUpPage from './pages/sign-in-and-sign-up/sign-in-and-sign-up';
 import ExmpleForAnimationComponents from './pages/ExmpleForAnimationComponents/ExmpleForAnimationComponents';

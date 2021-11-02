@@ -2,7 +2,6 @@
 import './ExmpleForAnimationComponents.css';
 
 import {TextDisplayAnimation} from '../../components/TextDisplay/TextDisplayAnimation';
-
 function ExmpleForAnimationComponents() {
   let text =` 
   נא לכווין בברכות לעילוי נשמתו אבגדהוזחטיכלמנסעפצקשת ולברך בכוונה`;

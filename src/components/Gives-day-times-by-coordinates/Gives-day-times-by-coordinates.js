@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import moment from 'moment';
 import { getZmanimJson } from "kosher-zmanim";
+import AnimateEarth from '../../pages/Animate/AnimateEarth';
 import ZmanimCard from "../zmanim-card/zmanim-card";
 import SelectPlacesFromGoogle from '../select-places-from-google/select-places-from-google';
 import './Gives-day-times-by-coordinates.scss'
@@ -22,29 +23,29 @@ export default function GivesDayTimesByCoordinates(props) {
     }
     let RefreshZmanimFunc = async () => {
         let list = [
-            "AlosHashachar","עלות השחר",
-            "Misheyakir11Point5Degrees","זמן טלית",
+            "AlosHashachar", "עלות השחר",
+            "Misheyakir11Point5Degrees", "זמן טלית",
             "Sunrise", "נץ החמה",
-            "SofZmanShmaMGA16Point1Degrees",` סוזק"ש מג"א`,
+            "SofZmanShmaMGA16Point1Degrees", ` סוזק"ש מג"א`,
             "SofZmanShmaGRA", ` סוזק"ש הגר"א`,
             "Chatzos", "חצות",
-            "MinchaGedola30Minutes","מנחה גדולה",
-            "PlagHamincha","פלג המנחה",
-            "Sunset","שקיעת החמה",
-            "Tzais","צאת הכוכבים",
-            "Tzais72",`ר"ת`
+            "MinchaGedola30Minutes", "מנחה גדולה",
+            "PlagHamincha", "פלג המנחה",
+            "Sunset", "שקיעת החמה",
+            "Tzais", "צאת הכוכבים",
+            "Tzais72", `ר"ת`
         ]
         if (Object.keys(zmanim).length !== 0) {
             for (const [keyFromZmanim, value] of Object.entries(zmanim.Zmanim)) {
                 if (list.includes(keyFromZmanim)) {
                     let current = moment(zmanim.Zmanim[keyFromZmanim]);
-                    await setZmaneyHayom(zmaneyHayomArray=>[...zmaneyHayomArray,[list[list.indexOf(keyFromZmanim)+1] , current.format("hh:mm a")]]);
+                    await setZmaneyHayom(zmaneyHayomArray => [...zmaneyHayomArray, [list[list.indexOf(keyFromZmanim) + 1], current.format("hh:mm a")]]);
                 } else {
                 }
             }
         }
     }
-    useEffect(async() => {
+    useEffect(async () => {
         await setZmaneyHayom([])
         RefreshZmanimFunc();
     }, [zmanim]);
@@ -70,10 +71,12 @@ export default function GivesDayTimesByCoordinates(props) {
         }
     }, [coordinates]);
     return (<section className="section1">
+        <AnimateEarth anim={true} />
+
         <h1 className="times-header">אין לסמוך על הזמנים בדקדוק ויש להוסיף 4 דקות לחומרא</h1>
         <SelectPlacesFromGoogle onSelect={onSelect} />
         <div className="times-box">
-            {zmaneyHayom.map(zman => <ZmanimCard  key={zman} name={zman[0]} time={zman[1]} />)}
+            {zmaneyHayom.map(zman => <ZmanimCard key={zman} name={zman[0]} time={zman[1]} />)}
         </div>
     </section>
 
