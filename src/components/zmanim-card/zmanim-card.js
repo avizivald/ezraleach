@@ -6,14 +6,13 @@ import AnimateEarth from '../../pages/Animate/AnimateEarth';
 const ZmanimCard = (props) => (
   <div className="card">
     <div className="card__side card__side--front">
-
       <p className="card__heading1">{props.name}</p>
       <p className="card__heading2">{props.time}</p>
 
     </div>
     <div className="card__side card__side--back ">
       <div className='AnimateEarthBox'>
-        <AnimateEarth />
+        <AnimateEarth pozXy={props.time} />
       </div>
       <p className="card__heading2">{props.name}</p>
       <p className="card__heading1">{props.time}</p>
